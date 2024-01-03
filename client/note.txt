@@ -1,0 +1,2 @@
+ClientId:   9ee5bdfcea8ea4e85299b0f25aeb06a6
+SecretKey:  b8SOnHSd2JQ0LbERKzaOb5rY_sFohcsxJP1PMZf0ytJ7RUlpWAis5WXKEkr0_RIASySZC7ttwMxIn6QjQp9o5w
