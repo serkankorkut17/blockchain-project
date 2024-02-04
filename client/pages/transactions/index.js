@@ -19,12 +19,18 @@ const TransactionsPage = props => {
     if (!user) {
       router.push('/login');
     }
-    console.log(user);
-    console.log(props);
-    const thisUser = props.users.find(u => u.username === user.username);
-    //console.log(thisUser);
-    setTransactions(thisUser.transactions);
   }, [user]);
+
+  useEffect(() => {
+    if (user) {
+      const userTransactions = props.users.find(
+        userObj => userObj.username === user.username
+      ).transactions;
+      setTransactions(userTransactions);
+    }
+  }
+  , [user, props.users]);
+  
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
