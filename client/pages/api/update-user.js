@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   try {
     await connectDatabase();
     if (req.method === 'PUT') {
-      const { username, role, title } = req.body;
+      const { username, role, title, titleOfCampaign, donation } = req.body;
       const user = await mongoose.models.User.findOne({
         username: username,
       });
@@ -22,6 +22,7 @@ export default async function handler(req, res) {
         user.role = 'Both';
         user.title = '-';
       }
+      user.transactions.push({ title: titleOfCampaign, donation });
       user.save();
       res.status(200).json({ message: 'User updated', user });
     }

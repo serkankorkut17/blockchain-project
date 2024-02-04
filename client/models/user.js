@@ -17,6 +17,18 @@ const userSchema = new Schema({
   title: {
     type: String,
   },
+  transactions: [
+    {
+      title: {
+        type: String,
+        required: true,
+      },
+      donation: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
 export default mongoose.models.User || mongoose.model('User', userSchema);

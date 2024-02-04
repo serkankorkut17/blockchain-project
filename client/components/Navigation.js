@@ -14,6 +14,7 @@ const Navigation = () => {
   const menuList = [
     { name: 'White Paper', link: '/' },
     { name: 'Members', link: '/members' },
+    { name: 'My Transactions', link: '/transactions' },
   ];
 
   return (

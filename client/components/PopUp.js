@@ -29,10 +29,12 @@ const PopUp = ({
         const username = user.username;
         const role = 'Donator';
         const title = amount + ' ' + 'ETH';
+        const titleOfCampaign = donateCampaign.title;
+        const donation = amount + ' ' + 'ETH';
         await fetch('/api/update-user', {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, role, title }),
+          body: JSON.stringify({ username, role, title, titleOfCampaign, donation }),
         });
       }
       setOpenModal(false);
