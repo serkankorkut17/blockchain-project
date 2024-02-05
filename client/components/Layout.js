@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 function Layout(props) {
   return (
-    <div>
+    <div className='h-screen m-0'>
       <Head>
         <title>Voltran</title>
       </Head>
