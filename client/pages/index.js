@@ -41,34 +41,21 @@ const HomePage = () => {
     }
   }, [contract]);
 
-  //Donation PopUp
-  const [openModal, setOpenModal] = useState(false);
-  const [donateCampaign, setDonateCampaign] = useState();
-
   return (
     <>
       <Hero />
       <Card
         title="All Listed Campaigns"
         allCampaigns={allCampaigns}
-        setOpenModal={setOpenModal}
-        setDonate={setDonateCampaign}
+        donateFunction={donate}
+        getDonations={getDonations}
       />
       <Card
         title="My Campaigns"
         allCampaigns={userCampaigns}
-        setOpenModal={setOpenModal}
-        setDonate={setDonateCampaign}
+        donateFunction={donate}
+        getDonations={getDonations}
       />
-
-      {openModal && (
-        <PopUp
-          setOpenModal={setOpenModal}
-          donateCampaign={donateCampaign}
-          donateFunction={donate}
-          getDonations={getDonations}
-        />
-      )}
     </>
   );
 };

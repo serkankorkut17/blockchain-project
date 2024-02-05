@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
+import PopUp from '../components/PopUp';
 
-const Card = ({ allCampaigns, setOpenModal, setDonate, title }) => {
+const Card = ({ allCampaigns, title, donateFunction, getDonations }) => {
+  const [openModal, setOpenModal] = useState(false);
+  const [donateCampaign, setDonateCampaign] = useState();
   const daysLeft = deadline => {
     const difference = new Date(deadline).getTime() - Date.now();
     const remainingDays = difference / (1000 * 3600 * 24);
@@ -12,7 +15,7 @@ const Card = ({ allCampaigns, setOpenModal, setDonate, title }) => {
 
   const clickHandler = campaign => {
     setOpenModal(true);
-    setDonate(campaign);
+    setDonateCampaign(campaign);
     /* console.log(campaign); */
   };
 
@@ -53,6 +56,14 @@ const Card = ({ allCampaigns, setOpenModal, setDonate, title }) => {
           </div>
         ))}
       </div>
+      {openModal && (
+        <PopUp
+          donateCampaign={donateCampaign}
+          donateFunction={donateFunction}
+          getDonations={getDonations}
+          setOpenModal={setOpenModal}
+        />
+      )}
     </div>
   );
 };
